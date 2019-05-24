@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.1
+        environment:
+          LANG: en_US.UTF-8
+          BUNDLE_DISABLE_VERSION_CHECK: 1
+    steps:
+      - checkout
+      - run:
+          name: Install ruby dependencies
+          command: gem update --system; bin/setup
+      - run:
+          name: Execute specs
+          command: rake
