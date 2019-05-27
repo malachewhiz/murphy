@@ -26,7 +26,6 @@ module Murphy
       if config_arg.empty? && File.exists?(path_to_rubocop_config)
         default_arguments.unshift "-c #{path_to_rubocop_config}"
       end
-      puts(args: default_arguments, default_config: path_to_rubocop_config)
       default_arguments
     end
 
