@@ -40,13 +40,15 @@ bundle exec murphy -c my_rubocop.yml
 
 or run rubocop directly, if your project defines it.
 
-All other rubocop command line arguments will be passed.
+All other rubocop command line arguments will be passed (without specifying the -c argument,
+murphy's default configuration will be used).
 
 You can also use `murphy-git` to execute [rubocop-git](https://github.com/m4i/rubocop-git).
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to run the tests.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to run the
+tests.
 
 ## Contributing
 

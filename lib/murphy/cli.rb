@@ -23,16 +23,14 @@ module Murphy
     def default_arguments
       default_arguments = @runtime_arguments.dup
       config_arg = default_arguments.select { |arg| arg.start_with?("-c", "--config") }
-      if config_arg.empty?
+      if config_arg.empty? && File.exists?(path_to_rubocop_config)
         default_arguments.unshift "-c #{path_to_rubocop_config}"
       end
       default_arguments
     end
 
     def path_to_rubocop_config
-      project_root = File.join File.expand_path(__dir__), ".rubocop.yml"
-      gem_root = File.join File.expand_path("..", $LOAD_PATH.first), ".rubocop.yml"
-      [project_root, gem_root].detect { |dir| File.exists?(dir) }
+      File.join Gem::Specification.find_by_name("murphy").gem_dir, ".rubocop.yml"
     end
   end
 end
