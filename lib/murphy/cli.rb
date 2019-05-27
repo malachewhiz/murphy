@@ -26,12 +26,14 @@ module Murphy
       if config_arg.empty?
         default_arguments.unshift "-c #{path_to_rubocop_config}"
       end
+      puts(args: default_arguments)
       default_arguments
     end
 
     def path_to_rubocop_config
       project_root = File.join File.expand_path(__dir__), ".rubocop.yml"
       gem_root = File.join File.expand_path("..", $LOAD_PATH.first), ".rubocop.yml"
+      puts(project: project_root, gem: gem_root)
       [project_root, gem_root].detect { |dir| File.exists?(dir) }
     end
   end
