@@ -20,7 +20,7 @@ Or install it yourself as:
 
 Execute murphy with the default configuration with
 
-````
+```
 bundle exec murphy
 ```
 
@@ -41,6 +41,8 @@ bundle exec murphy -c my_rubocop.yml
 or run rubocop directly, if your project defines it.
 
 All other rubocop command line arguments will be passed.
+
+You can also use `murphy-git` to execute [rubocop-git](https://github.com/m4i/rubocop-git).
 
 ## Development
 

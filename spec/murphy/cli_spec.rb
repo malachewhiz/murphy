@@ -18,15 +18,27 @@ RSpec.describe Murphy::CLI do
     end
   end
 
-  describe "#run" do
+  describe "#rubocop" do
     it "calls the rubocop executable with the arguments" do
       runtime_arguments = ["-d", "--config .rubocop.yml"]
       cli = described_class.new(runtime_arguments)
       allow(cli).to receive(:system)
 
-      cli.run
+      cli.rubocop
 
       expect(cli).to have_received(:system).with("bundle exec rubocop -d --config .rubocop.yml")
+    end
+  end
+
+  describe "#rubocop_git" do
+    it "calls the rubocop-git executable with the arguments" do
+      runtime_arguments = ["-d", "--config .rubocop.yml"]
+      cli = described_class.new(runtime_arguments)
+      allow(cli).to receive(:system)
+
+      cli.rubocop_git
+
+      expect(cli).to have_received(:system).with("bundle exec rubocop-git -d --config .rubocop.yml")
     end
   end
 end

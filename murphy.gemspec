@@ -29,11 +29,12 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.bindir        = "exe"
-  spec.executables   = ["murphy"]
+  spec.executables   = ["murphy", "murphy-git"]
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "rubocop", "0.67.2"
-  spec.add_runtime_dependency "rubocop-performance", "1.1"
+  spec.add_runtime_dependency "rubocop", "~> 0.67.2"
+  spec.add_runtime_dependency "rubocop-git", "~> 0.1"
+  spec.add_runtime_dependency "rubocop-performance", "~> 1.1"
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "byebug"

@@ -6,8 +6,12 @@ module Murphy
       @runtime_arguments = runtime_arguments
     end
 
-    def run
+    def rubocop
       system "bundle exec rubocop " + arguments.join(" ")
+    end
+
+    def rubocop_git
+      system "bundle exec rubocop-git " + arguments.join(" ")
     end
 
     def arguments
@@ -26,7 +30,9 @@ module Murphy
     end
 
     def path_to_rubocop_config
-      "#{$LOAD_PATH.first}/../.rubocop.yml"
+      project_root = File.join File.expand_path(__dir__), ".rubocop.yml"
+      gem_root = File.join File.expand_path("..", $LOAD_PATH.first), ".rubocop.yml"
+      [project_root, gem_root].detect { |dir| File.exists?(dir) }
     end
   end
 end

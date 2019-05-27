@@ -3,4 +3,4 @@
 
 require "murphy"
 
-exit Murphy::CLI.new(ARGV).rubocop
+exit Murphy::CLI.new(ARGV).rubocop_git
