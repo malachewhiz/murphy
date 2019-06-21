@@ -12,9 +12,9 @@ RSpec.describe Murphy::CLI do
     it "adds the gem's rubocop.yml to the arguments if the rubocop config flag is missing" do
       runtime_arguments = ["-d"]
       cli = described_class.new(runtime_arguments)
-      allow(cli).to receive(:path_to_rubocop_config).and_return("./.rubocop.yml")
+      allow(cli).to receive(:path_to_rubocop_config).and_return("./.murphy.yml")
 
-      expect(cli.arguments).to eq ["-c ./.rubocop.yml", "-d"]
+      expect(cli.arguments).to eq ["-c ./.murphy.yml", "-d"]
     end
   end
 

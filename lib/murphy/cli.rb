@@ -30,7 +30,7 @@ module Murphy
     end
 
     def path_to_rubocop_config
-      File.join Gem::Specification.find_by_name("murphy").gem_dir, ".rubocop.yml"
+      File.join Gem::Specification.find_by_name("murphy").gem_dir, ".murphy.yml"
     end
   end
 end
