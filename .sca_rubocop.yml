@@ -1,0 +1,11 @@
+inherit_from: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - vendor/**/*
+    - db/schema.rb
+    - bin/*
+    - config/application.rb
+    - config/boot.rb
+    - config/environment.rb
